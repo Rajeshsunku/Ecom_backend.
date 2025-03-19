@@ -4,7 +4,16 @@ const connectDB = require("./config/db");
 const router = require("./routes/authroutes");
 const cartrouter = require("./routes/cartRoutes");
 const app= express();
-app.use(cors())
+app.use(cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true, // Allows cookies and authentication headers if needed
+  }))
 app.use(express.json())
 connectDB()
 app.use("/auth",router)   
@@ -13,6 +22,7 @@ app.get('/' , (req ,res)=>{
     res.send("hello world")
 })
 const port = 5000
+
 app.listen(port, ()=>{
 console.log(`server is running on port ${port}`)
 }
