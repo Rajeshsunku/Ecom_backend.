@@ -6,7 +6,7 @@ const cartrouter = require("./routes/cartRoutes");
 const app= express();
 
 app.use(cors({
-    origin:"frontend-321uvmfrq-rajesh-s-projects-3600510b.vercel.app"
+    origin:"frontend-eight-sage-40.vercel.app"
   }))
 app.use(express.json())
 connectDB()
