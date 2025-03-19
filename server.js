@@ -4,15 +4,9 @@ const connectDB = require("./config/db");
 const router = require("./routes/authroutes");
 const cartrouter = require("./routes/cartRoutes");
 const app= express();
+
 app.use(cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true, // Allows cookies and authentication headers if needed
+    origin:"frontend-321uvmfrq-rajesh-s-projects-3600510b.vercel.app"
   }))
 app.use(express.json())
 connectDB()
